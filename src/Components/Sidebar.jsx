@@ -13,7 +13,7 @@ function Sidebar(){
     const menuItems = [
         { label: "Dashboard", icon: LayoutDashboard, path: "/" },
         { label: "Consultar", icon: Search, path: "/consultar" },
-        { label: "Meus Processos", icon: Folder, path: "/processos" },
+        { label: "Meus Processos", icon: Folder, path: "/MeusProcessos" },
         { label: "Upload ", icon: Upload, path: "/upload" },
         { label: "Perfil", icon: User, path: "/perfil" },
     ];
@@ -21,7 +21,7 @@ function Sidebar(){
         <>
             <aside className=" h-screen w-60 hidden md:flex bg-[#193182] text-white flex flex-col fixed ">
                 <div className="flex flex-col items-center">
-                    <img src={logo} alt="" className="mt-2 w-44 py-4"/>
+                    <img src={logo} alt="" className="mt-2 w-42 py-4"/>
                 </div>
                 <hr className="mt-4 text-blue-400"/> 
                 <nav className="flex-1 px-3 py-4 space-y-1 flex flex-col">
@@ -49,7 +49,7 @@ function Sidebar(){
             <div className='w-full md:hidden bg-[#193182]'>
                 <img className="w-40 p-2" src={logo} alt="" />
              </div>
-            <nav className="fixed bottom-0 left-0 right-0 bg-white border-t md:hidden flex justify-around py-2">
+            <nav className="fixed bottom-0 left-0 right-0 bg-white border-t md:hidden flex justify-around py-4">
                 {menuItems.map(item => {
                     const Icon = item.icon;
                     return (
