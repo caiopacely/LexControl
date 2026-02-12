@@ -1,4 +1,4 @@
-import InfoProcess from "../Components/infoProcess"
+import InfoProcess from "../Components/InfoProcess"
 import SearchProcess from "../Components/SearchProcess"
 import api from "../Services/Api"
 import { useState, useEffect } from "react"

@@ -21,16 +21,22 @@ function InfoProcess({ process }) {
         decisoes
     } = process;
 
+  function handleProcess(){
+    console.log("teste")
+  }
+
   return (
     <>
-      <div className="bg-re mt-8 mb-10 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.25)]">
+      <div className=" mt-8 mb-10 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.25)] bg-gray-50">
         <div className="p-8 flex justify-between">
           <div>
             <h1 className="text-2xl font-bold">Processo Encontrado</h1>
             <p className="text-gray-600">{numeroProcesso}</p>   
           </div>
 
-          <button className="border-blue-600 border rounded-md px-2 h-10 flex items-center gap-1 text-blue-600 hover:bg-blue-100">
+          <button className="border-blue-600 border rounded-md px-2 h-10 flex items-center gap-1 text-blue-600 hover:bg-blue-100"
+            onClick={handleProcess()}
+          >
             <Star /> Salvar
           </button>
         </div>
@@ -96,7 +102,6 @@ function InfoProcess({ process }) {
             {faseAtual}
           </div>
         </div>
-
         <div className="px-8">
           <h1 className="text-xl">Última movimentação</h1>
 
