@@ -1,11 +1,13 @@
 import { Star } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import Loading from './Loanding';
+import { useState } from 'react';
 
 
 function InfoProcess({ process }) {
     const navigate = useNavigate();
-
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
     if (!process) return <Loading></Loading>;
 
     const {
@@ -18,13 +20,55 @@ function InfoProcess({ process }) {
         assuntos,
         orgaoJulgador,
         ultimaMovimentacao,
-        decisoes
+        decisoes,
+        distribuicao,
     } = process;
 
-  function handleProcess(){
-    console.log("teste")
-  }
+  
+  async function saveProcess() {
+  console.log("Salvar")
+  setLoading(true);
 
+  try {
+    const token = localStorage.getItem("token");
+    console.log(token)
+    const response = await fetch("http://localhost:3000/process", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+        
+      },
+      body: JSON.stringify({
+        numeroProcesso,
+        status,
+        tribunal,
+        dataAjuizamento,
+        tipo:classe.nome,
+        faseAtual,
+        assuntos,
+        orgaoJulgador,
+        ultimaMovimentacao,
+        decisoes,
+        vara:decisoes?.[1]?.orgaoJulgador?.nome,
+        dataDistribuicao: distribuicao?.dataHora
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Erro ao salvar processo");
+    }
+
+    console.log("Processo salvo com sucesso!", data);
+
+  } catch (err) {
+    setError(err.message);
+  } finally {
+    setLoading(false);
+  }
+}
   return (
     <>
       <div className=" mt-8 mb-10 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.25)] bg-gray-50">
@@ -35,7 +79,7 @@ function InfoProcess({ process }) {
           </div>
 
           <button className="border-blue-600 border rounded-md px-2 h-10 flex items-center gap-1 text-blue-600 hover:bg-blue-100"
-            onClick={handleProcess()}
+            onClick={saveProcess}
           >
             <Star /> Salvar
           </button>

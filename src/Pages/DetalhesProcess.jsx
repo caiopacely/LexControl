@@ -94,27 +94,57 @@ function DetalhesProcess(){
                     </div>
                 </div>
           </div>
-          <div className="mt-6 shadow-[0_0_20px_rgba(0,0,0,0.25)] rounded-xl p-6 grid grid-cols-1 md:grid-cols-1 flex gap-2 ">
-            {process.movimentos.map((item, index) => (
-                <div key={index} className=' flex  flex-col p-4 rounded-md shadow-[0_0_20px_rgba(0,0,0,0.1)] gap-2 border-solid border-1 border-blue-800'>
-                    <h1 className='flex items-center gap-2'><FileSpreadsheet className='bg-[#193182] text-white rounded-full w-8 h-8 p-1 text-blue-800 '></FileSpreadsheet> {item.nome}</h1>
-                    <h1 className='flex gap-2 items-center'><Calendar className='bg-[#193182] text-white rounded-full w-8 h-8 p-1 text-blue-800'/> {new Date(item.dataHora).toLocaleDateString('pt-BR', {
-                            day: '2-digit',
-                            month: '2-digit',
-                            year: 'numeric'
-                        })}
-                    </h1>
-                    {item.complementosTabelados && (
-                        <div className='flex gap-2 justify-between bg-[#193182] px-2 py-1 rounded-4xl'>
-                            <p className='text-white'>{formatLabel(item.complementosTabelados[0]?.descricao)}</p>
-                            <p className='bg-yellow-400 rounded-2xl px-2 border-solid border-1 border-gray-600 text-gary-800'>{item.complementosTabelados[0]?.nome}</p>
-                        </div>
-                        
-                    )}
+          <div className="mt-8 bg-white shadow-[0_0_20px_rgba(0,0,0,0.15)] rounded-2xl p-6">
+  <h1 className="text-xl font-bold mb-6">Movimentações</h1>
 
-                </div>
-            ))}
+  <div className="flex flex-col gap-6">
+    {process.movimentos.map((item, index) => (
+      <div key={index} className="relative pl-10">
+
+        {/* Linha vertical da timeline */}
+        <div className="absolute left-3 top-0 bottom-0 w-[2px] bg-blue-200"></div>
+
+        {/* Bolinha da timeline */}
+        <div className="absolute left-0 top-1 w-6 h-6 bg-[#193182] rounded-full flex items-center justify-center">
+          <FileSpreadsheet className="text-white w-3 h-3" />
         </div>
+
+        {/* Card da movimentação */}
+        <div className="bg-gray-50 rounded-xl p-4 shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200">
+
+          {/* Título */}
+          <h2 className="font-semibold text-gray-800">
+            {item.nome}
+          </h2>
+
+          {/* Data */}
+          <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
+            <Calendar className="w-4 h-4" />
+            {new Date(item.dataHora).toLocaleDateString("pt-BR", {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+            })}
+          </div>
+
+          {/* Complementos */}
+          {item.complementosTabelados?.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-3">
+              {item.complementosTabelados.map((comp, i) => (
+                <span
+                  key={i}
+                  className="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full font-medium"
+                >
+                  {formatLabel(comp?.descricao)} - {comp?.nome}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
         </>
     )
 }

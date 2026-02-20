@@ -14,7 +14,7 @@ function Layout() {
 
       <main className="flex-1 p-10 md:ml-60 bg-gray-100 min-h-screen">
         <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/consultar" element={<Consultar />} />
           <Route path="/meusProcessos" element={<MeusProcessos />} />
           <Route path="/upload" element={<Upload />} />

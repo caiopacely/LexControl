@@ -11,7 +11,7 @@ import {
 
 function Sidebar(){
     const menuItems = [
-        { label: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
+        { label: "Dashboard", icon: LayoutDashboard, path: "/" },
         { label: "Consultar", icon: Search, path: "/consultar" },
         { label: "Meus Processos", icon: Folder, path: "/meusProcessos" },
         { label: "Upload ", icon: Upload, path: "/upload" },
