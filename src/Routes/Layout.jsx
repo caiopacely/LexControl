@@ -12,7 +12,7 @@ function Layout() {
     <div className="flex flex-col md:flex-row">
       <Sidebar />
 
-      <main className="flex-1 p-10 md:ml-60 bg-gray-100 min-h-screen">
+      <main className="flex-1 py-10 px-6 md:ml-60 bg-gray-100 min-h-screen">
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/consultar" element={<Consultar />} />

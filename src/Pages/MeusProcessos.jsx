@@ -44,9 +44,9 @@ function MeusProcessos(){
         handleProcess()
     }, [])
 
-    if (loading || !processApi) {
-        return <TelaLoading></TelaLoading>
-    }
+    if (loading || !processApi || processApi.length === 0) {
+     return <TelaLoading />
+    }   
 
     console.log(processApi)
 
@@ -56,7 +56,7 @@ function MeusProcessos(){
                 <h1 className="font-bold text-4xl">Meus Processos</h1>
                 <h1 className="text-gray-600 mt-1">Gerencie todos os processos salvos em sua área de trabalho</h1>
             </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 mb-10 lg:grid-cols-3 gap-8">
         {processApi.map((processo, index) => (
             <div
             key={index}

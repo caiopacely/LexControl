@@ -71,7 +71,7 @@ function InfoProcess({ process }) {
 }
   return (
     <>
-      <div className=" mt-8 mb-10 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.25)] bg-gray-50">
+      <div className=" mt-8 mb-14 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.25)] bg-gray-50">
         <div className="p-8 flex justify-between">
           <div>
             <h1 className="text-2xl font-bold">Processo Encontrado</h1>
