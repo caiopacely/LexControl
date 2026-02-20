@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Scale } from "lucide-react";
-
+import { Link } from "react-router-dom"
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -105,7 +105,9 @@ function LoginPage() {
             </button>
           </form>
           <div>
-            <p className="mt-2">Não tem conta? <a className="text-blue-700" href="/cadastroPage">cadastre-se aqui</a></p>
+            <p className="mt-2">Não tem conta? <Link to="/cadastroPage" className="text-blue-700">
+            cadastre-se aqui
+          </Link></p>
           </div>
 
           <p className="text-center text-xs text-gray-500 mt-6">
