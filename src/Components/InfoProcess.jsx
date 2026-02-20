@@ -32,7 +32,7 @@ function InfoProcess({ process }) {
   try {
     const token = localStorage.getItem("token");
     console.log(token)
-    const response = await fetch("http://localhost:3000/process", {
+    const response = await fetch("https://juridiccontrolback.onrender.com/process", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

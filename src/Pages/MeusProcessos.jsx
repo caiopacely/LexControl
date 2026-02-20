@@ -26,7 +26,7 @@ function MeusProcessos(){
             const token = localStorage.getItem("token")
            
             try {
-                const response = await fetch("http://localhost:3000/process", {
+                const response = await fetch("https://juridiccontrolback.onrender.com/process", {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
