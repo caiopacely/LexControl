@@ -17,6 +17,12 @@ function Sidebar(){
         { label: "Upload ", icon: Upload, path: "/upload" },
         { label: "Perfil", icon: User, path: "/perfil" },
     ];
+
+    function handleLogout() {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        window.location.href = "/login"
+    }
     return(
         <>
             <aside className=" h-screen w-60 hidden md:flex bg-[#193182] text-white flex flex-col fixed ">
@@ -46,8 +52,9 @@ function Sidebar(){
 
                 <hr className=" text-blue-400 h-2 mb-20"/> 
             </aside>
-            <div className='w-full md:hidden bg-[#193182]'>
-                <img className="w-40 p-2" src={logo} alt="" />
+            <div className='w-full md:hidden bg-[#193182] flex justify-between p-4 fixed  items-center'>
+                <img className="w-40 " src={logo} alt="" />
+                <button onClick={handleLogout} className="mr-4 bg-gray-100 px-4 h-8 rounded-md">Sair</button>
              </div>
             <nav className="fixed bottom-0 left-0 right-0 bg-white border-t md:hidden flex justify-around py-4">
                 {menuItems.map(item => {

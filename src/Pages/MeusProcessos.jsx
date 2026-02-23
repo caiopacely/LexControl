@@ -10,6 +10,7 @@ import {
   Clock3,
   MapPin 
 } from "lucide-react";
+import NotProcess from '../Components/notProcess';
 
 
 
@@ -44,14 +45,22 @@ function MeusProcessos(){
         handleProcess()
     }, [])
 
-    if (loading || !processApi || processApi.length === 0) {
-     return <TelaLoading />
-    }   
+     if (loading) {
+    return <TelaLoading />;
+    }
 
-    console.log(processApi)
+    // 🔹 2 - Se não tiver nenhum processo salvo
+    if (!process.length) {
+        return <NotProcess />;
+    }
 
+    // 🔹 3 - Enquanto a API externa ainda está carregando
+    if (!processApi) {
+        return <TelaLoading />;
+    }
+   
     return (
-        <>
+        <div className=''>
             <div className="mb-10">
                 <h1 className="font-bold text-4xl">Meus Processos</h1>
                 <h1 className="text-gray-600 mt-1">Gerencie todos os processos salvos em sua área de trabalho</h1>
@@ -155,7 +164,7 @@ function MeusProcessos(){
             </div>
         ))}
         </div>
-    </>
+    </div>
     )
 }
 
