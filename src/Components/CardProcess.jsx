@@ -45,13 +45,12 @@ function CardProcess(){
         handleProcess()
     }, [])
 
-     if (loading) {
-    return <TelaLoading />;
+    if (!process || !numProcess) {
+        return <TelaLoading />;
     }
-
-    // 🔹 2 - Se não tiver nenhum processo salvo
-    if (!process.length) {
-        return <NotProcess />;
+    
+    if (loading) {
+        return <TelaLoading />;
     }
 
     // 🔹 3 - Enquanto a API externa ainda está carregando
