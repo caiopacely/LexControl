@@ -1,28 +1,34 @@
 import logo from "../assets/Logo.png"
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import {
   LayoutDashboard,
   Search,
   Folder,
   Upload,
-  User
+  User,
+  ClipboardList
 } from "lucide-react";
 
 function Sidebar(){
     const menuItems = [
         { label: "Dashboard", icon: LayoutDashboard, path: "/" },
         { label: "Consultar", icon: Search, path: "/consultar" },
+        { label: "Demandas", icon: ClipboardList, path: "/tasks" },
         { label: "Meus Processos", icon: Folder, path: "/meusProcessos" },
         { label: "Upload ", icon: Upload, path: "/upload" },
         { label: "Perfil", icon: User, path: "/perfil" },
     ];
 
+    const navigate = useNavigate();
+
     function handleLogout() {
         localStorage.removeItem("token");
         localStorage.removeItem("user");
-        window.location.href = "/login"
+        navigate("/login");
     }
+    
     return(
         <>
             <aside className=" h-screen w-60 hidden md:flex bg-[#193182] text-white flex flex-col fixed ">

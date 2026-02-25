@@ -6,6 +6,7 @@ import Upload from '../Pages/Upload';
 import Perfil from '../Pages/Perfil';
 import DetalhesProcess from '../Pages/DetalhesProcess';
 import { Routes, Route } from "react-router-dom";
+import Tasks from '../Pages/Tasks';
 
 function Layout() {
   return (
@@ -17,6 +18,7 @@ function Layout() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/consultar" element={<Consultar />} />
           <Route path="/meusProcessos" element={<MeusProcessos />} />
+          <Route path="/tasks" element={<Tasks/>} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/detalhesProcess/:numeroProcesso" element={<DetalhesProcess />} />
