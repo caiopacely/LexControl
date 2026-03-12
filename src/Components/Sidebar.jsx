@@ -8,7 +8,7 @@ import {
   Folder,
   Upload,
   User,
-  ClipboardList
+  ClipboardList,
 } from "lucide-react";
 
 function Sidebar(){
@@ -16,7 +16,7 @@ function Sidebar(){
         { label: "Dashboard", icon: LayoutDashboard, path: "/" },
         { label: "Consultar", icon: Search, path: "/consultar" },
         { label: "Demandas", icon: ClipboardList, path: "/tasks" },
-        { label: "Meus Processos", icon: Folder, path: "/meusProcessos" },
+        { label: "Processos", icon: Folder, path: "/meusProcessos" },
         { label: "Upload ", icon: Upload, path: "/upload" },
         { label: "Perfil", icon: User, path: "/perfil" },
     ];

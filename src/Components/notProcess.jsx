@@ -29,7 +29,7 @@ function NotProcess() {
         {/* Botão de ação */}
         <div className="mt-8">
           <button
-            onClick={() => navigate("/consulta")}
+            onClick={() => navigate("/consultar")}
             className="bg-[#193182] hover:bg-[#1038bc] text-white px-6 py-3 rounded-lg font-medium transition-colors"
           >
             Consultar processo

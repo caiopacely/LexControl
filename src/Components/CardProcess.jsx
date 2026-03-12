@@ -45,19 +45,17 @@ function CardProcess(){
         handleProcess()
     }, [])
 
-    if (!process || !numProcess) {
-        return <TelaLoading />;
-    }
-    
     if (loading) {
         return <TelaLoading />;
     }
 
-    // 🔹 3 - Enquanto a API externa ainda está carregando
     if (!processApi) {
         return <TelaLoading />;
     }
-   
+    if(!loading && numProcess.length === 0){
+        return <NotProcess></NotProcess>
+
+    }
     return (
         <div className=''>
         <div className="grid grid-cols-1 md:grid-cols-2 mb-10 lg:grid-cols-3 gap-8">
