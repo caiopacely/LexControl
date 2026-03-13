@@ -58,7 +58,7 @@ function Sidebar(){
 
                 <hr className=" text-blue-400 h-2 mb-20"/> 
             </aside>
-            <div className='w-full md:hidden bg-[#193182] flex justify-between p-4 fixed  items-center'>
+            <div className='w-full md:hidden bg-[#193182] flex justify-between p-4 fixed items-center'>
                 <img className="w-40 " src={logo} alt="" />
                 <button onClick={handleLogout} className="mr-4 bg-gray-100 px-4 h-8 rounded-md">Sair</button>
              </div>

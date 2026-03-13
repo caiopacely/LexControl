@@ -1,13 +1,15 @@
-import { Star } from 'lucide-react';
+import { Star, Check } from 'lucide-react';
 import { useNavigate} from 'react-router-dom';
 import Loading from './Loanding';
 import { useState } from 'react';
+
 
 
 function InfoProcess({ process }) {
     const navigate = useNavigate();
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
     if (!process) return <Loading></Loading>;
 
     const {
@@ -26,8 +28,11 @@ function InfoProcess({ process }) {
 
   
   async function saveProcess() {
+  setIsClicked(true);    
+  
   console.log("Salvar")
   setLoading(true);
+  
 
   try {
     const token = localStorage.getItem("token");
@@ -69,6 +74,9 @@ function InfoProcess({ process }) {
     setLoading(false);
   }
 }
+
+
+
   return (
     <>
       <div className=" mt-8 mb-14 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.25)] bg-gray-50">
@@ -78,10 +86,10 @@ function InfoProcess({ process }) {
             <p className="text-gray-600">{numeroProcesso}</p>   
           </div>
 
-          <button className="border-blue-600 border rounded-md px-2 h-10 flex items-center gap-1 text-blue-600 hover:bg-blue-100"
+          <button className={`border-blue-600 border rounded-md px-2 h-10 flex items-center gap-1 text-blue-600 hover:bg-blue-100 `}
             onClick={saveProcess}
           >
-            <Star /> Salvar
+         {isClicked ? <><Check /> Salvo </> : <><Star /> Salvar</>}
           </button>
         </div>
 

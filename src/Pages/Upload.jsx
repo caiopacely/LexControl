@@ -2,11 +2,11 @@ import { Construction, ArrowLeft } from 'lucide-react';
 
 function Upload(){
     return (
-         <div className=" bg-gradient-to-br h-full flex items-center justify-center p-4 ">
+         <div className=" bg-gradient-to-br h-full flex items-center justify-center p-4  ">
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 max-w-md w-full text-center">
                 {/* Ícone animado */}
                 <div className="mb-6 flex justify-center">
-                    <div className="bg-blue-100 rounded-full p-6 animate-pulse">
+                    <div className="bg-blue-100 rounded-full p-6 animate-pulse bg">
                         <Construction size={64} className="text-blue-600" />
                     </div>
                 </div>
